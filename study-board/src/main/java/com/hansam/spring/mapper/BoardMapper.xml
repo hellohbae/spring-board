@@ -4,34 +4,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.hansam.spring.mapper.BoardMapper">
-	<select id="boardCount" resultType="int">
+	<select id="boardCount" resultType="integer">
 		SELECT
 			COUNT(*)
-		FROM BOARD
+		FROM board
 	</select>
 	
 	<select id="boardList" resultType="com.hansam.spring.domain.BoardVO">
 		SELECT
 			*
-		FROM BOARD
+		FROM board
 	</select>
 	
 	<select id="boardDetail" parameterType="int" resultType="com.hansam.spring.domain.BoardVO">
 		SELECT
 			*
-		FROM BOARD
+		FROM board
 		WHERE
 			BNO = #{bno}
 	</select>
 	
 	<insert id="boardInsert" parameterType="com.hansam.spring.domain.BoardVO">
 		INSERT INTO
-		BOARD (BNO, SUBJECT, CONTENT,WRITER, REG_DATE)
+		board (BNO, SUBJECT, CONTENT,WRITER, REG_DATE)
 		VALUES(#{bno}, #{subject}, #{content}, #{writer}, now())
 	</insert>
 	
 	<update id="boardUpdate" parameterType="com.hansam.spring.domain.BoardVO">
-		UPDATE BOARD
+		UPDATE board
 			SET
 		<if test="subject != null">
 			SUBJECT = #{subject}
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE BNO = #{bno}
 	</update>
 	
-	<delete id="boardDelete" parameterType="int">
-		Delete FROM BOARD WHERE BNO = #{bno}
+	<delete id="boardDelete" parameterType="integer">
+		Delete FROM board WHERE BNO = #{bno}
 	</delete>
 </mapper>
