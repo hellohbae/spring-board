@@ -21,12 +21,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			*
 		FROM board
 		WHERE
-			BNO = #{bno}
+			bno = #{bno}
 	</select>
 	
 	<insert id="boardInsert" parameterType="com.hansam.spring.domain.BoardVO">
 		INSERT INTO
-		board (BNO, SUBJECT, CONTENT,WRITER, REG_DATE)
+		board (bno, subject, content,writer, reg_date)
 		VALUES(#{bno}, #{subject}, #{content}, #{writer}, now())
 	</insert>
 	
@@ -34,16 +34,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE board
 			SET
 		<if test="subject != null">
-			SUBJECT = #{subject}
+			subject = #{subject}
 		</if>
 		<if test="subject != null and content != null"> , </if>
 		<if test="content != null">
-			CONTENT = #{content}
+			content = #{content}
 		</if>
-		WHERE BNO = #{bno}
+		WHERE bno = #{bno}
 	</update>
 	
 	<delete id="boardDelete" parameterType="integer">
-		Delete FROM board WHERE BNO = #{bno}
+		Delete FROM board WHERE bno = #{bno}
 	</delete>
 </mapper>
