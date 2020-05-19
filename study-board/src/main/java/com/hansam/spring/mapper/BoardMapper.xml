@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM board
 	</select>
 	
-	<select id="boardDetail" parameterType="int" resultType="com.hansam.spring.domain.BoardVO">
+	<select id="boardDetail" parameterType="integer" resultType="com.hansam.spring.domain.BoardVO">
 		SELECT
 			*
 		FROM board
