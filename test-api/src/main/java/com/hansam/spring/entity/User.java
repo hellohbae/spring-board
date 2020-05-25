@@ -10,13 +10,13 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String name;
+	private String username;
 	private String password;
 	
 	protected User() {}
 	
 	public User(String name, String password) {
-		this.name = name;
+		this.username = name;
 		this.password = password;
 	}
 	
@@ -25,11 +25,11 @@ public class User {
 	}
 	
 	public String getName() {
-		return name;
+		return username;
 	}
 	
-	public void setName(String name) {
-        this.name = name;
+	public void setName(String username) {
+        this.username = username;
     }
 	
 	public String getPassword() {
@@ -42,6 +42,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("User[id='%d', name='%s']", id, name);
+        return String.format("User[id='%d', name='%s']", id, username);
     }
 }
